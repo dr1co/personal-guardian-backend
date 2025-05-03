@@ -1,45 +1,45 @@
 import { Request, Response } from "express";
 
 import handleError from "../services/errorServices";
-import * as notesServices from '../services/notesServices';
+import * as notesServices from "../services/notesServices";
 
 export async function createNote(req: Request, res: Response) {
-    const { id: userId } = res.locals.user;
-    const note = req.body;
+  const { id: userId } = res.locals.user;
+  const note = req.body;
 
-    try {
-        await notesServices.addNew({ ...note, userId: Number(userId) });
+  try {
+    await notesServices.addNew({ ...note, userId });
 
-        res.status(201).send("Note created successfully");
-    } catch (err: Error | any) {
-        const statusCode = handleError(err.code);
-        res.status(statusCode).send("On createNote: " + err.message);
-    }
+    res.status(201).send("Note created successfully");
+  } catch (err: Error | any) {
+    const statusCode = handleError(err.code);
+    res.status(statusCode).send("On createNote: " + err.message);
+  }
 }
 
 export async function getAllNotes(req: Request, res: Response) {
-    const { id: userId } = res.locals.user;
+  const { id: userId } = res.locals.user;
 
-    try {
-        const notes = await notesServices.getAll(Number(userId));
+  try {
+    const notes = await notesServices.getAll(userId);
 
-        res.status(200).send(notes);
-    } catch (err: Error | any) {
-        const statusCode = handleError(err.code);
-        res.status(statusCode).send("On getAllNotes: " + err.message);
-    }
+    res.status(200).send(notes);
+  } catch (err: Error | any) {
+    const statusCode = handleError(err.code);
+    res.status(statusCode).send("On getAllNotes: " + err.message);
+  }
 }
 
 export async function deleteNote(req: Request, res: Response) {
-    const { id } = req.params;
-    const { id: userId } = res.locals.user;
+  const { id } = req.params;
+  const { id: userId } = res.locals.user;
 
-    try {
-        await notesServices.deleteOne(Number(id), Number(userId));
+  try {
+    await notesServices.deleteOne(id, userId);
 
-        res.status(203).send("Note deleted successfully");
-    } catch (err: Error | any) {
-        const statusCode = handleError(err.code);
-        res.status(statusCode).send("On deleteNote: " + err.message);
-    }
+    res.status(204).send("Note deleted successfully");
+  } catch (err: Error | any) {
+    const statusCode = handleError(err.code);
+    res.status(statusCode).send("On deleteNote: " + err.message);
+  }
 }
