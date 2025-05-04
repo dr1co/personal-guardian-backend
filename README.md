@@ -1,6 +1,6 @@
-# Projeto 19 - DrivenPass-back
+# Personal Guardian - API
 
-### Olá, bem-vindo ao projeto DrivenPass, um projeto que consiste numa API responsável pelo gerenciamento de informações sensíveis de seus usuários.
+### Olá, bem-vindo backend do Personal Guardian, uma API responsável pelo gerenciamento de senhas e outras informações sensíveis de seus usuários.
 
 ---
 
