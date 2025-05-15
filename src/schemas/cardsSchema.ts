@@ -1,6 +1,6 @@
 import joi from "joi";
 
-import { ICard } from "../repositories/cardsRepository";
+import { ICard } from "@/repositories/cardsRepository";
 
 export const cardsSchema = joi.object<Omit<ICard, "id, userId">>({
   title: joi.string().required(),

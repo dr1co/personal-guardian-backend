@@ -1,13 +1,13 @@
 import express from "express";
 
-import validateToken from "../middlewares/validateTokenMiddleware";
-import validateSchema from "../middlewares/validateSchemaMiddleware";
-import { wifiSchema } from "../schemas/wifiSchema";
+import validateToken from "@/middlewares/validateTokenMiddleware";
+import validateSchema from "@/middlewares/validateSchemaMiddleware";
+import { wifiSchema } from "@/schemas/wifiSchema";
 import {
   createWifi,
   getAllWifis,
   deleteWifi,
-} from "../controllers/wifiController";
+} from "@/controllers/wifiController";
 
 const wifiRouter = express.Router();
 

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import handleError from "../services/errorServices";
-import * as notesServices from "../services/notesServices";
+import handleError from "@/services/errorServices";
+import * as notesServices from "@/services/notesServices";
 
 export async function createNote(req: Request, res: Response) {
   const { id: userId } = res.locals.user;

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import handleError from "../services/errorServices";
-import * as cardsServices from "../services/cardsServices";
+import handleError from "@/services/errorServices";
+import * as cardsServices from "@/services/cardsServices";
 
 export async function createCard(req: Request, res: Response) {
   const { id: userId } = res.locals.user;

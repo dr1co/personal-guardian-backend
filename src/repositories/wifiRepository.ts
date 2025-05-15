@@ -1,6 +1,6 @@
 import cuid from "cuid";
 
-import client from "../databases/prisma";
+import client from "@/databases/prisma";
 
 export interface IWifi {
   id: string;

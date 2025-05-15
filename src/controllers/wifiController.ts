@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import handleError from "../services/errorServices";
-import * as wifiServices from "../services/wifiServices";
+import handleError from "@/services/errorServices";
+import * as wifiServices from "@/services/wifiServices";
 
 export async function createWifi(req: Request, res: Response) {
   const { id: userId } = res.locals.user;

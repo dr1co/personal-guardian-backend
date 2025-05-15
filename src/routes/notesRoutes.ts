@@ -1,13 +1,13 @@
 import express from "express";
 
-import validateToken from "../middlewares/validateTokenMiddleware";
-import validateSchema from "../middlewares/validateSchemaMiddleware";
-import { notesSchema } from "../schemas/notesSchema";
+import validateToken from "@/middlewares/validateTokenMiddleware";
+import validateSchema from "@/middlewares/validateSchemaMiddleware";
+import { notesSchema } from "@/schemas/notesSchema";
 import {
   createNote,
   getAllNotes,
   deleteNote,
-} from "../controllers/notesController";
+} from "@/controllers/notesController";
 
 const notesRouter = express.Router();
 

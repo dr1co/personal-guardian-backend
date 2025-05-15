@@ -1,5 +1,5 @@
-import * as credentialsRepository from "../repositories/credentialsRepository";
-import * as encryption from "./encryptionServices";
+import * as credentialsRepository from "@/repositories/credentialsRepository";
+import * as encryption from "@/services/encryptionServices";
 
 export async function addNew(
   credentials: Omit<credentialsRepository.ICredentials, "id">

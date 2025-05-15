@@ -1,15 +1,15 @@
 {
   "name": "personal-guardian-back",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for Personal Guardian, a password manager App",
   "main": "index.js",
   "scripts": {
     "prisma-gen": "npx prisma generate",
-    "create-db": "createdb -U postgres personal-guardian",
+    "create-db": "createdb -U postgres personal_guardian",
     "reset-db": "npx prisma migrate reset",
     "seed": "ts-node ./src/scripts/seed.ts",
     "setup": "npm install && npm run create-db && npm run prisma-gen && npx prisma migrate dev",
-    "build": "tsc && prisma-gen && npx prisma migrate deploy",
+    "build": "npm install && tsc && npm run prisma-gen && npx prisma migrate deploy && npm run seed",
     "start": "node dist/index.js",
     "dev": "npx nodemon src/index.ts"
   },

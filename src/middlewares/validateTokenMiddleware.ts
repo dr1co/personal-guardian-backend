@@ -2,6 +2,8 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { NextFunction, Request, Response } from "express";
 
+dotenv.config();
+
 const jwtKey = process.env.JWT_SECRET || "personalguardian";
 
 export default function validateToken(

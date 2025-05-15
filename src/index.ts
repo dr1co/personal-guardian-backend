@@ -3,11 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
-import authRouter from "./routes/authRoutes";
-import credentialsRouter from "./routes/credentialsRoutes";
-import notesRouter from "./routes/notesRoutes";
-import cardsRouter from "./routes/cardsRoutes";
-import wifiRouter from "./routes/wifiRoutes";
+import authRouter from "@/routes/authRoutes";
+import credentialsRouter from "@/routes/credentialsRoutes";
+import notesRouter from "@/routes/notesRoutes";
+import cardsRouter from "@/routes/cardsRoutes";
+import wifiRouter from "@/routes/wifiRoutes";
 
 const PORT = Number(process.env.PORT) || 4001;
 

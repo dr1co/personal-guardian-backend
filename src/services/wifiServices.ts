@@ -1,5 +1,5 @@
-import * as encryption from "./encryptionServices";
-import * as wifiRepository from "../repositories/wifiRepository";
+import * as encryption from "@/services/encryptionServices";
+import * as wifiRepository from "@/repositories/wifiRepository";
 
 export async function addNew(wifi: Omit<wifiRepository.IWifi, "id">) {
   const encryptedPassword = encryption.encrypt(wifi.password);

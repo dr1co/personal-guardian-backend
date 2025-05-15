@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import handleError from "../services/errorServices";
-import * as credentialsServices from "../services/credentialsServices";
+import handleError from "@/services/errorServices";
+import * as credentialsServices from "@/services/credentialsServices";
 
 export async function createCredentials(req: Request, res: Response) {
   const { id: userId } = res.locals.user;

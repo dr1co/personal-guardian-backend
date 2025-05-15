@@ -1,4 +1,4 @@
-import * as notesRepository from "../repositories/notesRepository";
+import * as notesRepository from "@/repositories/notesRepository";
 
 export async function addNew(note: Omit<notesRepository.INote, "id">) {
   try {

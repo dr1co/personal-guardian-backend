@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
-import * as userRepository from "../repositories/userRepository";
-import * as encryption from "./encryptionServices";
+import * as userRepository from "@/repositories/userRepository";
+import * as encryption from "@/services/encryptionServices";
 
 dotenv.config();
 const jwtKey = process.env.JWT_SECRET || "drivenpass";

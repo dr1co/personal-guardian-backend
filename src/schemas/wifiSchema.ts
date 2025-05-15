@@ -1,6 +1,6 @@
 import joi from "joi";
 
-import { IWifi } from "../repositories/wifiRepository";
+import { IWifi } from "@/repositories/wifiRepository";
 
 export const wifiSchema = joi.object<Omit<IWifi, "id, userId">>({
   title: joi.string().required(),

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import handleError from "../services/errorServices";
-import * as userServices from "../services/userServices";
+import handleError from "@/services/errorServices";
+import * as userServices from "@/services/userServices";
 
 export async function createUser(req: Request, res: Response) {
   const user = req.body;

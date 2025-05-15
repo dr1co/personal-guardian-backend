@@ -1,5 +1,5 @@
-import * as encryption from "./encryptionServices";
-import * as cardsRepository from "../repositories/cardsRepository";
+import * as encryption from "@/services/encryptionServices";
+import * as cardsRepository from "@/repositories/cardsRepository";
 
 export async function addNew(card: Omit<cardsRepository.ICard, "id">) {
   const encryptedSecCode = encryption.encrypt(card.securityCode);

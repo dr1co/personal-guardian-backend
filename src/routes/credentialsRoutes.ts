@@ -1,13 +1,13 @@
 import express from "express";
 
-import validateSchema from "../middlewares/validateSchemaMiddleware";
-import validateToken from "../middlewares/validateTokenMiddleware";
-import { credentialsSchema } from "../schemas/credentialsSchema";
+import validateSchema from "@/middlewares/validateSchemaMiddleware";
+import validateToken from "@/middlewares/validateTokenMiddleware";
+import { credentialsSchema } from "@/schemas/credentialsSchema";
 import {
   createCredentials,
   getAllCredentials,
   deleteCredentials,
-} from "../controllers/credentialsController";
+} from "@/controllers/credentialsController";
 
 const credentialsRouter = express.Router();
 
