@@ -24,9 +24,9 @@ model Users {
 
 model Credentials {
   id       String @id
-  title    String
-  url      String
-  username String
+  title    String @db.VarChar(50)
+  url      String @db.VarChar(200)
+  username String 
   password String
   user     Users  @relation(fields: [userId], references: [id])
   userId   String
@@ -38,7 +38,7 @@ model Credentials {
 model Notes {
   id     String @id
   title  String @db.VarChar(50)
-  note   String @db.VarChar(1000)
+  note   String @db.VarChar(10000)
   user   Users  @relation(fields: [userId], references: [id])
   userId String
 
@@ -48,10 +48,10 @@ model Notes {
 
 model Cards {
   id             String   @id
-  title          String
-  number         String   @db.VarChar(16)
+  title          String   @db.VarChar(50)
+  number         String
   securityCode   String
-  expirationDate String   @db.VarChar(5)
+  expirationDate String
   password       String
   isVirtual      Boolean
   type           CardType
@@ -64,7 +64,7 @@ model Cards {
 
 model Wifis {
   id       String @id
-  title    String
+  title    String @db.VarChar(50)
   name     String
   password String
   user     Users  @relation(fields: [userId], references: id)

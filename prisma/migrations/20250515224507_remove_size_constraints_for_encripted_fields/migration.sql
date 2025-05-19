@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "cards" ALTER COLUMN "number" SET DATA TYPE TEXT,
+ALTER COLUMN "expirationDate" SET DATA TYPE TEXT;

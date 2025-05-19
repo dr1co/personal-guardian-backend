@@ -7,11 +7,11 @@
     "prisma-gen": "npx prisma generate",
     "create-db": "createdb -U postgres personal_guardian",
     "reset-db": "npx prisma migrate reset",
-    "seed": "ts-node ./src/scripts/seed.ts",
+    "seed": "ts-node -r tsconfig-paths/register ./src/scripts/seed.ts",
     "setup": "npm install && npm run create-db && npm run prisma-gen && npx prisma migrate dev",
-    "build": "npm install && tsc && npm run prisma-gen && npx prisma migrate deploy && npm run seed",
+    "build": "npm install && tsc && && npm run create-db && npm run prisma-gen && npx prisma migrate deploy && npm run seed",
     "start": "node dist/index.js",
-    "dev": "npx nodemon src/index.ts"
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "dr1co",
@@ -26,7 +26,8 @@
     "@types/jsonwebtoken": "^8.5.9",
     "@types/pg": "^8.6.5",
     "prisma": "^4.16.2",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^4.8.3"
   },
   "dependencies": {
