@@ -9,7 +9,7 @@
     "reset-db": "npx prisma migrate reset",
     "seed": "ts-node ./src/scripts/seed.ts",
     "setup": "npm install && npm run create-db && npm run prisma-gen && npx prisma migrate dev",
-    "build": "tsc && prisma-gen && npx prisma migrate deploy",
+    "build": "npm install && tsc && npm run prisma-gen && npx prisma migrate deploy && npm run seed",
     "start": "node dist/index.js",
     "dev": "npx nodemon src/index.ts"
   },
