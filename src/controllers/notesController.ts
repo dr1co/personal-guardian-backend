@@ -10,10 +10,14 @@ export async function createNote(req: Request, res: Response) {
   try {
     await notesServices.addNew({ ...note, userId });
 
-    res.status(201).send("Note created successfully");
+    res.status(201).send({
+      message: "Note created successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On createNote: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On createNote: " + err.message
+    });
   }
 }
 
@@ -26,7 +30,9 @@ export async function getAllNotes(req: Request, res: Response) {
     res.status(200).send(notes);
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On getAllNotes: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On getAllNotes: " + err.message
+    });
   }
 }
 
@@ -37,9 +43,13 @@ export async function deleteNote(req: Request, res: Response) {
   try {
     await notesServices.deleteOne(id, userId);
 
-    res.status(204).send("Note deleted successfully");
+    res.status(204).send({
+      message: "Note deleted successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On deleteNote: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On deleteNote: " + err.message
+    });
   }
 }

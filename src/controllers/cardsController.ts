@@ -10,10 +10,14 @@ export async function createCard(req: Request, res: Response) {
   try {
     await cardsServices.addNew({ ...card, userId });
 
-    res.status(201).send("Created card successfully");
+    res.status(201).send({
+      message: "Created card successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On createCard: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On createCard: " + err.message
+    });
   }
 }
 
@@ -26,7 +30,9 @@ export async function getAllCards(req: Request, res: Response) {
     res.status(200).send(cards);
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On getAllCards: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On getAllCards: " + err.message
+    });
   }
 }
 
@@ -37,9 +43,13 @@ export async function deleteCard(req: Request, res: Response) {
   try {
     const cards = await cardsServices.deleteOne(id, userId);
 
-    res.status(204).send("Card deleted successfully");
+    res.status(204).send({
+      message: "Card deleted successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On deleteCard: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On deleteCard: " + err.message
+    });
   }
 }

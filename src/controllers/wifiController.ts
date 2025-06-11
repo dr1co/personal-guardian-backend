@@ -10,10 +10,14 @@ export async function createWifi(req: Request, res: Response) {
   try {
     await wifiServices.addNew({ ...wifi, userId });
 
-    res.status(201).send("Wifi created successfully");
+    res.status(201).send({
+      message: "Wifi created successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On createWifi: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On createWifi: " + err.message
+    });
   }
 }
 
@@ -26,7 +30,9 @@ export async function getAllWifis(req: Request, res: Response) {
     res.status(200).send(wifis);
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On getAllWifis: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On getAllWifis: " + err.message
+    });
   }
 }
 
@@ -37,9 +43,13 @@ export async function deleteWifi(req: Request, res: Response) {
   try {
     await wifiServices.deleteOne(id, userId);
 
-    res.status(204).send("Wifi deleted successfully");
+    res.status(204).send({
+      message: "Wifi deleted successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On deleteCredentials: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On deleteCredentials: " + err.message
+    });
   }
 }

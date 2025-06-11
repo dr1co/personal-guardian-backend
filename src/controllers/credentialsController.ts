@@ -13,10 +13,14 @@ export async function createCredentials(req: Request, res: Response) {
       userId,
     });
 
-    res.status(201).send("Credentials created successfully");
+    res.status(201).send({
+      message: "Credentials created successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On createCredentials: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On createCredentials: " + err.message
+    });
   }
 }
 
@@ -29,7 +33,9 @@ export async function getAllCredentials(req: Request, res: Response) {
     res.status(200).send(credentials);
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On getAllCredentials: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On getAllCredentials: " + err.message
+    });
   }
 }
 
@@ -40,9 +46,13 @@ export async function deleteCredentials(req: Request, res: Response) {
   try {
     await credentialsServices.deleteOne(id, userId);
 
-    res.status(204).send("Credentials deleted successfully");
+    res.status(204).send({
+      message: "Credentials deleted successfully"
+    });
   } catch (err: Error | any) {
     const statusCode = handleError(err.code);
-    res.status(statusCode).send("On deleteCredentials: " + err.message);
+    res.status(statusCode).send({
+      errorMessage: "On deleteCredentials: " + err.message
+    });
   }
 }
